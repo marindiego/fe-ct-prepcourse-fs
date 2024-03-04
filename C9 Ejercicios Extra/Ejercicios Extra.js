@@ -6,6 +6,11 @@ function deObjetoAarray(objeto) {
   // Estos elementos debe ser cada par clave:valor del objeto recibido.
   // [EJEMPLO]: {D: 1, B: 2, C: 3} ---> [['D', 1], ['B', 2], ['C', 3]].
   // Tu código:
+  let newArray = []
+  for (let key in objeto) {
+    newArray.push([key, objeto[key]])
+  }
+  return newArray;
 }
 
 function numberOfCharacters(string) {
@@ -14,6 +19,14 @@ function numberOfCharacters(string) {
   // Las letras deben estar en orden alfabético.
   // [EJEMPLO]: "adsjfdsfsfjsdjfhacabcsbajda" ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }
   // Tu código:
+  const uniqueLetter = Array.from(new Set(string)).sort();
+  const obj = {};
+  uniqueLetter.forEach(letter => {
+    obj[letter] = string.split(letter).length - 1;
+  });
+  return obj;
+
+
 }
 
 function capToFront(string) {
